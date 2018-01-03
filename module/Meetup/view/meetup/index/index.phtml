@@ -1,9 +1,11 @@
-<h1>Films</h1>
+<h1>List Meetups</h1>
 
 <ul>
-    <?php foreach ($this->films as $film): /* @var $film \Application\Entity\Film */ ?>
-    <li><?= $film->getTitle() ?></li>
+    <?php foreach ($this->meetups as $meetup): /* @var $meetup \Application\Entity\Meetup */ ?>
+    <li><?= $meetup->getTitle() ?></li>
+    <li><?= $meetup->getDateStart() ?></li>
+    <li><?= $meetup->getDateEnd() ?></li>
     <?php endforeach; ?>
 </ul>
 
-<a href="<?= $this->url('films/add'); ?>" class="btn btn-primary">Add new</a>
+<a href="<?= $this->url('meetup/add'); ?>" class="btn btn-primary">Add new Meetup</a>

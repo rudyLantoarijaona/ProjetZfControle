@@ -1,4 +1,4 @@
-<h1>Add a film</h1>
+<h1>Add a Meetups</h1>
 
 <?php
     $form = $this->form; /* @var $form \Zend\Form\Form */
@@ -7,6 +7,12 @@
 <?= $this->form()->openTag($form); ?>
 
 <?= $this->formRow($form->get('title')) ?>
+
+<?= $this->formRow($form->get('description')) ?>
+
+<?= $this->formRow($form->get('dateStart')) ?>
+
+<?= $this->formRow($form->get('dateEnd')) ?>
 
 <?= $this->formInput($form->get('submit')) ?>
 

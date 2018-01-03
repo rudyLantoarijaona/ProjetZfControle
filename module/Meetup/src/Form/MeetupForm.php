@@ -23,6 +23,33 @@ class MeetupForm extends Form implements InputFilterProviderInterface
             ],
         ]);
 
+
+        $this->add([
+            'type' => Element\Textarea::class,
+            'name' => 'description',
+            'options' => [
+                'label' => 'Description',
+            ],
+        ]);
+
+
+        $this->add([
+            'type' => Element\date::class,
+            'name' => 'dateStart',
+            'options' => [
+                'label' => 'dateStart',
+            ],
+        ]);
+
+
+        $this->add([
+            'type' => Element\date::class,
+            'name' => 'dateEnd',
+            'options' => [
+                'label' => 'dateEnd',
+            ],
+        ]);
+
         $this->add([
             'type' => Element\Submit::class,
             'name' => 'submit',
@@ -42,7 +69,18 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                         'name' => StringLength::class,
                         'options' => [
                             'min' => 2,
-                            'max' => 4,
+                            'max' => 10,
+                        ],
+                    ],
+                ],
+            ],
+            'description' => [
+                'validators' => [
+                    [
+                        'name' => StringLength::class,
+                        'options' => [
+                            'min' => 2,
+                            'max' => 20,
                         ],
                     ],
                 ],

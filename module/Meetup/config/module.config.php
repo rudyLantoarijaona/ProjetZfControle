@@ -10,7 +10,7 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 return [
     'router' => [
         'routes' => [
-            'films' => [
+            'meetup' => [
                 'type' => Literal::class,
                 'options' => [
                     'route'    => '/meetup',
@@ -41,7 +41,7 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            FilmForm::class => InvokableFactory::class,
+            Meetupform::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [

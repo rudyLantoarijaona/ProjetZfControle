@@ -76,10 +76,6 @@ class ComposerStaticInitcba6382ed49a869b51e0a7b91a3ed37a
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
         ),
-        'C' => 
-        array (
-            'Cinema\\' => 7,
-        ),
         'A' => 
         array (
             'Application\\' => 12,
@@ -247,10 +243,6 @@ class ComposerStaticInitcba6382ed49a869b51e0a7b91a3ed37a
         'Doctrine\\Common\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
-        ),
-        'Cinema\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/module/Cinema/src',
         ),
         'Application\\' => 
         array (
