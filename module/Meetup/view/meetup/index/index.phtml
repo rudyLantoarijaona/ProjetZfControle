@@ -1,11 +1,14 @@
 <h1>List Meetups</h1>
 
-<ul>
-    <?php foreach ($this->meetups as $meetup): /* @var $meetup \Application\Entity\Meetup */ ?>
-    <li><?= $meetup->getTitle() ?></li>
-    <li><?= $meetup->getDateStart() ?></li>
-    <li><?= $meetup->getDateEnd() ?></li>
+<div class="list-group">
+
+    <?php foreach ($this->meetups as $meetup):  ?>
+    	
+  <a href="/#" class="list-group-item"><?= $meetup->getTitle() ?> | <?= $meetup->getDateStart()->format('j/m/y'); ?> - <?= $meetup->getDateEnd()->format('j/m/y'); ?></a>
+  
+
+    
     <?php endforeach; ?>
-</ul>
+</div>
 
 <a href="<?= $this->url('meetup/add'); ?>" class="btn btn-primary">Add new Meetup</a>

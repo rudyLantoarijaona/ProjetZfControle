@@ -7,6 +7,7 @@ namespace Meetup\Entity;
 use Ramsey\Uuid\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Class Film
  *
@@ -20,7 +21,8 @@ class Meetup
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="string", length=36)
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
      **/
     private $id;
 
@@ -35,29 +37,29 @@ class Meetup
     private $description = '';
 
     /**
-     * @ORM\Column(type="string", length=2000, nullable=false)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $dateStart = '';
 
     /**
-     * @ORM\Column(type="string", length=2000, nullable=false)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $dateEnd = '';
 
 
-    public function __construct(string $id, string $title, string $description, string $dateDebut, string $dateFin)
+    public function __construct(string $title, string $description, string $dateStart, string $dateEnd)
     {
-        $this->id= $id;
+        /*$this->id= $id;*/
         $this->title = $title;
         $this->description = $description;
-        $this->dateDebut = new \DateTime($dateDebut);
-        $this->dateFin = new \DateTime($dateFin);
+        $this->dateStart = new \DateTime($dateStart);
+        $this->dateEnd = new \DateTime($dateEnd);
     }
 
     /**
      * @return string
      */
-    public function getId() : string
+    public function getId() : integer 
     {
         return $this->id;
     }
@@ -77,22 +79,22 @@ class Meetup
         $this->description = $description;
     }
 
-     public function getDateStart() : date
+     public function getDateStart() : \DateTime
     {
         return $this->dateStart;
     }
 
-    public function setDateStart(date $dateStart) : void
+    public function setDateStart(datetime $dateStart) : void
     {
         $this->dateStart = $dateStart;
     }
 
-     public function getDateEnd() : date
+     public function getDateEnd() : \DateTime
     {
         return $this->dateEnd;
     }
 
-    public function setDateEnd(date $dateEnd) : void
+    public function setDateEnd(datetime $dateEnd) : void
     {
         $this->dateEnd = $dateEnd;
     }

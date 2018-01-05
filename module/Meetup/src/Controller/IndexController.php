@@ -32,7 +32,7 @@ final class IndexController extends AbstractActionController
     public function indexAction()
     {
         return new ViewModel([
-            'meetup' => $this->MeetupRepository->findAll(),
+            'meetups' => $this->MeetupRepository->findAll(),
         ]);
     }
 
