@@ -59,7 +59,7 @@ class Meetup
     /**
      * @return string
      */
-    public function getId() : integer 
+    public function getId() : int 
     {
         return $this->id;
     }

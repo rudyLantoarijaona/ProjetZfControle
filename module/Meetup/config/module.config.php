@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Meetup\Form\MeetupForm;
 use Zend\Router\Http\Literal;
+use Zend\Router\Http\Segment;
 use Meetup\Controller;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
@@ -32,11 +33,46 @@ return [
                     ],
                 ],
             ],
+            'display' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/display/:id',
+                    'defaults' => [
+                        'controller' => Controller\DisplayController::class,
+                        'action'     => 'index',
+                    ],
+                     'constraints' => [
+                      'id' => '\d'
+                    ]
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'edit' => [
+                        'type' => Literal::class,
+                        'options' => [
+                            'route'    => '/edit',
+                            'defaults' => [
+                                'action'     => 'update',
+                            ],
+                        ],
+                    ],
+                    'delete' => [
+                        'type' => Literal::class,
+                        'options' => [
+                            'route'    => '/delete',
+                            'defaults' => [
+                                'action'     => 'delete',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => Controller\IndexControllerFactory::class,
+            Controller\DisplayController::class => Controller\DisplayControllerFactory::class,
         ],
     ],
     'service_manager' => [
@@ -48,6 +84,8 @@ return [
         'template_map' => [
             'meetup/index/index' => __DIR__ . '/../view/meetup/index/index.phtml',
             'meetup/index/add' => __DIR__ . '/../view/meetup/index/add.phtml',
+            'meetup/display/index' => __DIR__ . '/../view/meetup/display/index.phtml',
+            'meetup/display/update' => __DIR__ . '/../view/meetup/display/update.phtml',
         ],
     ],
     'doctrine' => [

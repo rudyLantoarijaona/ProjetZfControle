@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace Meetup\Controller;
@@ -14,7 +13,7 @@ use Zend\View\Model\ViewModel;
 final class IndexController extends AbstractActionController
 {
     /**
-     * @var FilmRepository
+     * @var MeetupRepository
      */
     private $meetupRepository;
 
@@ -35,6 +34,7 @@ final class IndexController extends AbstractActionController
             'meetups' => $this->MeetupRepository->findAll(),
         ]);
     }
+
 
     public function addAction()
     {

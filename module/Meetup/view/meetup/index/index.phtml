@@ -2,11 +2,18 @@
 
 <div class="list-group">
 
-    <?php foreach ($this->meetups as $meetup):  ?>
-    	
-  <a href="/#" class="list-group-item"><?= $meetup->getTitle() ?> | <?= $meetup->getDateStart()->format('j/m/y'); ?> - <?= $meetup->getDateEnd()->format('j/m/y'); ?></a>
-  
 
+    <?php foreach ($this->meetups as $meetup):  ?>
+
+    <div>	
+  <a href="<?= $this->url('display', ['id' => $meetup->getId()]); ?>" class="list-group-item">
+  	<h4 class="list-group-item-heading"><?= $meetup->getTitle() ?>  | <?= $meetup->getDateStart()->format('j/m/y'); ?> - <?= $meetup->getDateEnd()->format('j/m/y'); ?></h4>
+      <p class="list-group-item-text"> <?= $meetup->getDescription() ?> </p>
+  	   <!--<a href="<?= $this->url('meetup/add'); ?>" class="btn btn-primary">Edit</a>
+  	<a href="<?= $this->url('meetup/add'); ?>" class="btn btn-primary">Delete</a> -->  </a>
+  	
+  
+</div>
     
     <?php endforeach; ?>
 </div>

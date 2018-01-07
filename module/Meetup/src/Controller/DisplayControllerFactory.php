@@ -9,13 +9,13 @@ use Meetup\Form\MeetupForm;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 
-final class IndexControllerFactory
+final class DisplayControllerFactory
 {
-    public function __invoke(ContainerInterface $container) : IndexController
+    public function __invoke(ContainerInterface $container) : DisplayController
     {
         $meetupRepository = $container->get(EntityManager::class)->getRepository(Meetup::class);
         $meetupform = $container->get(Meetupform::class);
 
-        return new IndexController($meetupRepository, $meetupform);
+        return new DisplayController($meetupRepository, $meetupform);
     }
 }

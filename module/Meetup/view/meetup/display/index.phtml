@@ -1,0 +1,19 @@
+<div class="row">
+  <?php $meetup = $this->meetups[0] ?>
+
+  <a href="<?= $this->url('meetup'); ?>" class="btn btn-primary">Liste des meetups</a>
+  <a href="<?= $this->url('display/edit', ['id' => $meetup->getId()]); ?>" class="btn btn-warning">Modifier le meetup</a>
+  <a href="<?= $this->url('display/delete', ['id' => $meetup->getId()]); ?>" class="btn btn-danger">Delete</a>
+
+    <div class="col-md-12">
+        <h1><?= $meetup->getTitle(); ?></h1>
+        <h3><?= $meetup->getDescription(); ?></h3>
+        <div class="col-md-6">
+          Date de début : <?= $meetup->getDateStart()->format('j/m/y'); ?>
+        </div>
+        <div class="col-md-6">
+          Date de fin : <?= $meetup->getDateEnd()->format('j/m/y'); ?>
+        </div>
+    </div>
+
+  </div>
