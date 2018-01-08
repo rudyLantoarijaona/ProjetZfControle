@@ -52,9 +52,9 @@ final class DisplayController extends AbstractActionController
             if ($form->isValid()) {
                 $meetup->setTitle($form->getData()['title']);
                 $meetup->setDescription($form->getData()['description']);
-                $meetup->setDateStart(new \DateTime($form->getData()['dateDebut']));
-                $meetup->setDateEnd(new \DateTime($form->getData()['dateFin']));
-                $this->meetupRepository->update($meetup);
+                $meetup->setDateStart(new \DateTime($form->getData()['dateStart']));
+                $meetup->setDateEnd(new \DateTime($form->getData()['dateEnd']));
+                $this->MeetupRepository->update($meetup);
                 return $this->redirect()->toRoute('home');
             }
         }
@@ -67,8 +67,8 @@ final class DisplayController extends AbstractActionController
     public function deleteAction()
     {
         $id = $this->params()->fromRoute('id');
-        $meetup = $this->meetupRepository->findOneBy(array('id' => $id));
-        $this->meetupRepository->delete($meetup);
-        return $this->redirect()->toRoute('home');
+        $meetup = $this->MeetupRepository->findOneBy(array('id' => $id));
+        $this->MeetupRepository->delete($meetup);
+        return $this->redirect()->toRoute('meetup');
     }
 }

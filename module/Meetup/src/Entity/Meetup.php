@@ -69,6 +69,11 @@ class Meetup
         return $this->title;
     }
 
+    public function setTitle(string $title) : void 
+    {
+        $this->title = $title;
+    }
+
     public function getDescription() : string
     {
         return $this->description;
@@ -84,7 +89,7 @@ class Meetup
         return $this->dateStart;
     }
 
-    public function setDateStart(datetime $dateStart) : void
+    public function setDateStart(\DateTime $dateStart) : void
     {
         $this->dateStart = $dateStart;
     }
@@ -94,7 +99,7 @@ class Meetup
         return $this->dateEnd;
     }
 
-    public function setDateEnd(datetime $dateEnd) : void
+    public function setDateEnd(\DateTime $dateEnd) : void
     {
         $this->dateEnd = $dateEnd;
     }
