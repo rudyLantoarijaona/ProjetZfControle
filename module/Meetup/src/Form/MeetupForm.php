@@ -1,20 +1,21 @@
 <?php
-
 declare(strict_types=1);
-
 namespace Meetup\Form;
-
 use Zend\Form\Element;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilterProviderInterface;
 use Zend\Validator\StringLength;
-
+use Zend\Validator;
 class MeetupForm extends Form implements InputFilterProviderInterface
 {
+
+    const DATE_START_POST = 'dateStart';
+    const DATE_END_POST = 'dateEnd';
+
+
     public function __construct()
     {
         parent::__construct('meetup');
-
         $this->add([
             'type' => Element\Text::class,
             'name' => 'title',
@@ -22,8 +23,6 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                 'label' => 'Title',
             ],
         ]);
-
-
         $this->add([
             'type' => Element\Textarea::class,
             'name' => 'description',
@@ -31,8 +30,6 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                 'label' => 'Description',
             ],
         ]);
-
-
         $this->add([
             'type' => Element\date::class,
             'name' => 'dateStart',
@@ -40,8 +37,6 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                 'label' => 'dateStart',
             ],
         ]);
-
-
         $this->add([
             'type' => Element\date::class,
             'name' => 'dateEnd',
@@ -49,7 +44,6 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                 'label' => 'dateEnd',
             ],
         ]);
-
         $this->add([
             'type' => Element\Submit::class,
             'name' => 'submit',
@@ -57,9 +51,7 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                 'value' => 'Submit',
             ],
         ]);
-
     }
-
     public function getInputFilterSpecification()
     {
         return [
@@ -80,11 +72,12 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                         'name' => StringLength::class,
                         'options' => [
                             'min' => 2,
-                            'max' => 20,
+                            'max' => 200,
                         ],
                     ],
                 ],
             ],
+            
         ];
     }
 }

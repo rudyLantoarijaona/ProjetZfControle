@@ -2,11 +2,19 @@
     <h1>Welcome to <span class="zf-green">Meetup List Application</span></h1>
 
     <p>
-        Congratulations! You have successfully installed the
-        <a href="https://github.com/zendframework/ZendSkeletonApplication" target="_blank">ZF Skeleton Application</a>.
-        You are currently running Zend Framework version <?= \Application\Module::VERSION ?>.
-        This skeleton can serve as a simple starting point for you to begin
-        building your application on ZF.
+        Bienvenue sur l'application de Meetup
+
+        Projet de liste de meetups sur une base de Zend Framework 3 + Doctrine<br><br>
+
+         <strong>/!\ Rewrite : Attention il se peut que la réecriture ne s'effectue pas correctement. (Mon cas) il faut daonc ajouter "index.php" à la page home afin que les liens fonctionnent.</strong>
+       <br><br>
+        Routes: <br>
+        Home (/) : Affiche la liste des meetups disponibles.<br>
+        Add a meetup (/new) : Affiche le formulaire d'ajout d'un meetup.<br>
+        Meetup page (/meetup/:id) : Affiche les détails sur un meetup.<br>
+        Update meetup page (/meetup/:id/update) : Affiche le formulaire de modification du meetup.<br>
+        Delete meetup page (/meetup/:id/delete) : Route de suppression d'un meetup.<br>
+        
     </p>
 
     <p><a class="btn btn-success btn-lg" href="<?= $this->url('meetup'); ?>">Accéder au listing des Meetups</a></p>
