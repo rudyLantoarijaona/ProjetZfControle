@@ -3,7 +3,20 @@
 * Projet liste de meetups utilisant Zend Framework 3 + Doctrine
 
 
-* /!\ **Rewrite : Il se peut que la réecriture ne s'effectue pas correctement. (Mon cas) il faut daonc ajouter "index.php" à la page home afin que les liens fonctionnent** /!\
+* /!\ **Rewrite : Il se peut que la réecriture ne s'effectue pas correctement. (Mon cas) il faut daonc ajouter "index.php"(Ex : index.php/meetup) à la page home afin que les liens fonctionnent** /!\
+
+* Installation du projet :
+     * 1 -Cloner le projet
+     * 2 - Se rendre à la racine du projet avec le terminal
+     * 3 - Lancer les commandes suivantes :
+        * composer install
+        * docker compose up -d --build
+     * 4 - Pour la base de données lancer les commandes suivantes :
+        * docker-compose run --rm zf php vendor/bin/doctrine-module orm:info - ( Retirer php sous Windows)
+          * Cette commande de vérifier que notre entité exsite
+        * php vendor/bin/doctrine-module orm:schema-tool:update --force ( Retirer php sous Windows)
+     * 5 - L'application est maintenant prête a étre utilisé à l'adresse http://localhost:8080
+
 * Routes :
   * Home (/) : Affiche la liste des meetups disponibles.
   * Add a meetup (/new) : Affiche le formulaire d'ajout d'un meetup.
