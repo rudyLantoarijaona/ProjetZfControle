@@ -10,4 +10,7 @@
   * Meetup page (/meetup/:id) : Affiche les détails sur un meetup.
   * Update meetup page (/meetup/:id/update) : Affiche le formulaire de modification du meetup.
   
+
+* PS : La date n'a pas été gérer car je n'ai pas réussi à la gérer avec le Zend/Validator. Par conséquent j'ai préférer retirer ce code afin d'éviter d'avoir du code mort.
+
 In progress...
