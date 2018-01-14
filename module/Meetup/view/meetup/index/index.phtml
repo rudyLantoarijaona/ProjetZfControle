@@ -2,7 +2,7 @@
 
 <div class="list-group">
 
-
+<?php if(isset($this->meetups)): ?>
     <?php foreach ($this->meetups as $meetup):  ?>
 
     <div>	
@@ -16,6 +16,15 @@
 </div>
     
     <?php endforeach; ?>
+	<?php endif; ?>
+
+<?php if(!isset($this->meetups)): ?>
+		<div class="alert alert-warning">
+  <strong>Attention !</strong> Votre liste de meetup est vide ! Appuyer sur le bouton "Add new meetup"pour créer votre premier Meetup.
+		</div>
+<?php endif; ?>	
+
+
 </div>
 
 <a href="<?= $this->url('meetup/add'); ?>" class="btn btn-primary">Add new Meetup</a>
