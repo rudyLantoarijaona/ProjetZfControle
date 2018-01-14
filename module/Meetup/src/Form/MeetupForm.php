@@ -9,10 +9,7 @@ use Zend\Validator;
 class MeetupForm extends Form implements InputFilterProviderInterface
 {
 
-    const DATE_START_POST = 'dateStart';
-    const DATE_END_POST = 'dateEnd';
-
-
+   
     public function __construct()
     {
         parent::__construct('meetup');
